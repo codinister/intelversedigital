@@ -1,3 +1,5 @@
+'use client'
+
 import { useQuery } from '@tanstack/react-query';
 import fetch from './fetch';
 
@@ -10,10 +12,13 @@ const GetQuery = ({ key, url }: getQueryProp) => {
     return fetch({ url });
   };
 
-  return useQuery({
+  const result = useQuery({
     queryKey: [key],
     queryFn: fn,
   });
+
+  const {data,isPending, isError} = result
+  return isError ? 'An error occured' : isPending ? [] : data
 };
 
 export default GetQuery;
