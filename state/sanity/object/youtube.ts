@@ -1,11 +1,6 @@
-import React from 'react';
-import YouTube from 'react-youtube';
-import getYouTubeID from 'get-youtube-id';
-import { defineField, defineType } from 'sanity';
 
-const YoutubeFn = ({ value }: { value: undefined }) => {
-  return JSON.stringify(value, null, 2);
-};
+import { defineField, defineType } from 'sanity';
+import YouTubePreview from '@/components/YouTubePreview';
 
 export default defineType({
   name: 'youtube',
@@ -22,7 +17,9 @@ export default defineType({
   preview: {
     select: {
       url: 'url',
-      component: 'YoutubeFn',
     },
+  },
+  components: {
+    preview: YouTubePreview,
   },
 });

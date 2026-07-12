@@ -11,10 +11,12 @@ import settings from './document/settings';
 import thelatest from './document/thelatest';
 import tutorials from './document/tutorials';
 import comment from './document/comment';
+import post from './object/post';
 
 export const schemaTypes = [
-  blockContent,
   youtube,
+  blockContent,
+  post,
   about,
   author,
   besttools,
