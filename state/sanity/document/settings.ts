@@ -7,9 +7,10 @@ export default defineType({
   fields: [
     defineField({
       name: 'title',
-      title: 'Title',
+      title: 'Business Name',
       type: 'string',
-      validation: (Rule) => Rule.required().error('Title field required!'),
+      validation: (Rule) =>
+        Rule.required().error('Business name field required!'),
     }),
     defineField({
       name: 'location',
@@ -26,6 +27,11 @@ export default defineType({
     defineField({
       name: 'phone2',
       title: 'Phone 2',
+      type: 'string',
+    }),
+    defineField({
+      name: 'whatsapp',
+      title: 'Whatsapp',
       type: 'string',
     }),
     defineField({
@@ -56,11 +62,6 @@ export default defineType({
       options: {
         hotspot: true,
       },
-    }),
-    defineField({
-      name: 'whatsapp',
-      title: 'Whatsapp',
-      type: 'string',
     }),
   ],
   preview: {
