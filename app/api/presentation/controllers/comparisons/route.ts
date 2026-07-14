@@ -8,7 +8,7 @@ export const revalidate = 0;
 
 export async function GET() {
 
-  const fn = async ()=>{
+  const fn = ()=>{
     return postData.getPost('comparisons')
   }
 

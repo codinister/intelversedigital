@@ -23,11 +23,11 @@ export async function GET(
     const res = await forwardedRequests(req, url);
 
     return NextResponse.json({
-      success: res?.data,
+      success: res.data,
     });
   } catch (error) {
-    return NextResponse.json({
-      error: error,
-    });
+    if (error instanceof Error) {
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    }
   }
 }

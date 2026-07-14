@@ -1,21 +1,22 @@
 import serverConfig from '@/state/sanity/server.config';
-import BlogRepository from '../../domain/repository/blogRepository';
+import BlogRepository from '../../domain/repository/BlogRepository';
 import { groq } from 'next-sanity';
 
 class BlogPostRepository extends BlogRepository {
-  async getPost(type: string) {
+  async getPost(slug: string) {
     return await serverConfig.fetch(
       groq`
-        *[_type == $type]{
+        *[_type == $slug]{
         ..., 
-        'image': thumb.asset->url, 
+        'image': npost.thumb.asset->url, 
         'excerpt': array::join(
-        string::split((pt::text(body), '')[0..150] , ''
-        +'...'
-        )
-        }
+        string::split((pt::text(npost.content)), '')[0..150], ''
+        )+'...'
+
+    }
+ 
       `,
-      { type },
+      { slug },
     );
   }
 
