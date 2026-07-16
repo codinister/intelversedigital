@@ -7,7 +7,7 @@ type getQueryProp = {
   key: string;
   url: string;
 };
-const GetQuery = ({ key, url }: getQueryProp) => {
+const useGetQuery = (key: string, url: string) => {
   const fn = () => {
     return fetch({ url });
   };
@@ -21,4 +21,4 @@ const GetQuery = ({ key, url }: getQueryProp) => {
   return isError ? 'An error occured' : isPending ? [] : data
 };
 
-export default GetQuery;
+export default useGetQuery;

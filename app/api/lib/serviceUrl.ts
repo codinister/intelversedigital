@@ -8,6 +8,7 @@ const serviceUrl = () => {
     tutorials: getUrl('tutorials'),
     about: getUrl('about'),
     settings: getUrl('settings'),
+    menu: getUrl('menu'),
   };
 };
 
