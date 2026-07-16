@@ -1,6 +1,6 @@
 'use client';
 
-export default [
+const arr = [
   {
     name: 'Home',
     path: '/',
@@ -22,3 +22,5 @@ export default [
     path: '/contact',
   },
 ];
+
+export default arr

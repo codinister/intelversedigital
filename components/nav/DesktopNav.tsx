@@ -1,58 +1,33 @@
 'use client';
 
-import navData from '@/components/nav/navDava';
-
-import Link from 'next/link';
-import Image from 'next/image';
-import { usePathname } from 'next/navigation';
-import { motion } from 'motion/react';
+import { Sheet, SheetClose, SheetContent, SheetTrigger } from '../ui/sheet';
+import { useState } from 'react';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import Logo from './Logo';
+import Menu from './Menu';
 import useGetQuery from '@/state/query/useGetQuery';
-
+import { usePathname } from 'next/navigation';
 
 const DesktopNav = () => {
+  const [open, setOpen] = useState(false);
   const path = usePathname();
-
-  const data = useGetQuery('settings', 'settings');
+  const menu = useGetQuery('menu', 'menu');
 
   return (
-    <div className="sm:flex hidden mx-auto container py-3  justify-between items-center">
-      <div
- 
-      >
-        <Image
-          src={data[0]?.logo || '/empty.png'}
-          alt="logo"
-          width={100}
-          height={70}
-        />
-      </div>
-      <div>
-        <ul 
-
-
-        className="flex gap-6 ">
-          {navData.map(
-            (
-              v: {
-                name: string;
-                path: string;
-              },
-              k: number,
-            ) => (
-              <li 
-     
-              key={k}>
-                <Link
-                  className={`block rounded-3xl px-3 hover:bg-primary hover:text-black ${path === v.path ? 'bg-primary text-black' : 'text-white'}`}
-                  href={v.path}
-                >
-                  {v.name}
-                </Link>
-              </li>
-            ),
-          )}
-        </ul>
-      </div>
+    <div>
+      <Sheet open={open} onOpenChange={setOpen}>
+        <SheetTrigger>
+          <GiHamburgerMenu className="text-2xl font-bold text-black" />
+        </SheetTrigger>
+        <SheetContent side="left" className="w-80">
+          <div className="p-8 h-screen">
+            <div className="mb-6">
+              <Logo />
+            </div>
+            <Menu setClose={setOpen} menu={menu} />
+          </div>
+        </SheetContent>
+      </Sheet>
     </div>
   );
 };

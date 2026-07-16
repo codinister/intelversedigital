@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const client = axios.create({
-  baseURL: '/api',
+  baseURL: '/api/presentation/',
   headers: {
     'x-api-key': process.env.NEXT_PUBLIC_API_KEY || '',
   },

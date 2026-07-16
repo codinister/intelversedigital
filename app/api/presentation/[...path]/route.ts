@@ -22,9 +22,7 @@ export async function GET(
     const url = serviceRoutes(path);
     const res = await forwardedRequests(req, url);
 
-    return NextResponse.json({
-      success: res.data,
-    });
+    return NextResponse.json(res.data);
   } catch (error) {
     if (error instanceof Error) {
       return NextResponse.json({ error: error.message }, { status: 500 });

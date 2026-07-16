@@ -1,7 +1,5 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
+export type MenuData = {
+  id: string;
+  type: string;
+  title: string;
 };
-
-export default nextConfig;

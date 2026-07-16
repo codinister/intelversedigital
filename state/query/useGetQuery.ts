@@ -18,7 +18,7 @@ const useGetQuery = (key: string, url: string) => {
   });
 
   const {data,isPending, isError} = result
-  return isError ? 'An error occured' : isPending ? [] : data
+  return isError ? 'An error occured' : isPending ? [] : data?.data
 };
 
 export default useGetQuery;
