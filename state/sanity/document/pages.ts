@@ -1,11 +1,11 @@
-import React from 'react'
-import { FaRocketchat } from "react-icons/fa";
+import React from 'react';
+import { FaRocketchat } from 'react-icons/fa';
 import { defineField, defineType } from 'sanity';
 
 export default defineType({
-  name: 'about',
+  name: 'pages',
   type: 'document',
-  title: 'About Us',
+  title: 'Pages',
   icon: FaRocketchat,
   fields: [
     defineField({
@@ -13,6 +13,15 @@ export default defineType({
       title: 'Title',
       type: 'string',
       validation: (Rule) => Rule.required().error('Title field required!'),
+    }),
+    defineField({
+      name: 'slug',
+      title: 'Slug',
+      options: {
+        source: 'title',
+      },
+      type: 'slug',
+      validation: (Rule) => Rule.required().error('Slug field required!'),
     }),
     defineField({
       name: 'content',

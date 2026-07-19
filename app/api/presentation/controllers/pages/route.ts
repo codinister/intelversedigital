@@ -8,9 +8,9 @@ export const revalidate = 0;
 
 export async function GET() {
   try {
-    const fn = ()=> postData.getAbout()
+    const fn = ()=> postData.getPages()
     await csrfValidation();
-    const data = await redisCache('about', fn);
+    const data = await redisCache('pages', fn);
     return NextResponse.json(data);
   } catch (err) {
     return err;

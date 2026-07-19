@@ -12,7 +12,7 @@ const MenuLinks = ({ setClose, data }: MenuLinksProp) => {
     <ul>
       {data.map((v, k) => (
         <li key={k}>
-          <Link href={`/post/${v.id}`} onClick={() => setClose(false)}>
+          <Link href={`/post/${v.slug}`} onClick={() => setClose(false)}>
             {v.title}
           </Link>
         </li>

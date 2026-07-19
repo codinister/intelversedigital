@@ -12,6 +12,15 @@ export default defineType({
       validation: (Rule) => Rule.required().error('Title field required!'),
     }),
     defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'npost.title',
+      },
+      validation: (Rule) => Rule.required().error('Slug field required!'),
+    }),
+    defineField({
       name: 'thumb',
       title: 'Thumbnail',
       type: 'image',
@@ -25,7 +34,7 @@ export default defineType({
       title: 'Author',
       validation: (Rule) => Rule.required().error('Author field required!'),
       options: {
-        disableNew: true
+        disableNew: true,
       },
       type: 'reference',
       to: [{ type: 'author' }],

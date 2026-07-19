@@ -6,9 +6,10 @@ const serviceUrl = () => {
     comparisons: getUrl('comparisons'),
     besttools: getUrl('besttools'),
     tutorials: getUrl('tutorials'),
-    about: getUrl('about'),
+    pages: getUrl('pages'),
     settings: getUrl('settings'),
     menu: getUrl('menu'),
+    footer: getUrl('footer'),
   };
 };
 
