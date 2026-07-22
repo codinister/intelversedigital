@@ -63,6 +63,11 @@ export default defineType({
         hotspot: true,
       },
     }),
+    defineField({
+      name: 'domain',
+      title: 'Domain',
+      type: 'string',
+    }),
   ],
   preview: {
     select: {

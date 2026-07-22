@@ -25,6 +25,12 @@ export default defineType({
         hotspot: true,
       },
     }),
+    defineField({
+      name: 'desc',
+      title: 'Description',
+      type: 'string',
+      validation: (Rule) => Rule.required().error('Description required'),
+    }),
   ],
   preview: {
     select: {

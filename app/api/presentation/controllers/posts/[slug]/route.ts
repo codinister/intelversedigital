@@ -1,20 +1,21 @@
 import { postData } from '@/app/api/infrastructure/repository/BlogPostRepository';
 import csrfValidation from '@/app/api/lib/csrfValidation';
 import redisCache from '@/app/api/lib/redisCache';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
-export async function GET() {
-
-  const fn = ()=>{
-    return postData.getFooterData()
-  }
+export async function GET(
+  req: NextRequest,
+  { params }: { params: Promise<{ slug: string }> },
+) {
+  const slg = (await params)?.slug;
 
   try {
+    const fn = () => postData.getSinglePost(slg);
     await csrfValidation();
-    const data = await redisCache('footer', fn);
+    const data = await redisCache(`posts?slug=${slg}`, fn);
     return NextResponse.json(data);
   } catch (err) {
     return err;

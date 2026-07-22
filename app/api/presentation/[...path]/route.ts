@@ -20,6 +20,36 @@ export async function GET(
     await csrfValidation();
     await rateLimit();
     const url = serviceRoutes(path);
+
+    const res = await forwardedRequests(req, url);
+
+    return NextResponse.json(res.data);
+  } catch (error) {
+    if (error instanceof Error) {
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    }
+  }
+}
+
+
+export async function POST(
+  req: NextRequest,
+  {
+    params,
+  }: {
+    params: Promise<{
+      path: string[];
+    }>;
+  },
+) {
+  try {
+
+    const { path } = await params;
+
+    await csrfValidation();
+    await rateLimit();
+    const url = serviceRoutes(path);
+
     const res = await forwardedRequests(req, url);
 
     return NextResponse.json(res.data);

@@ -4,7 +4,8 @@ import { apiKey } from './envConfigs';
 
 const forwardedRequests = async (req: NextRequest, url: string) => {
   const data =
-    req.method === 'GET' || req.method === 'HEAD' ? undefined : req.json();
+    req.method === 'GET' || req.method === 'HEAD' ? undefined : await req.json();
+
 
   const result = await axios({
     method: req.method,
@@ -17,7 +18,7 @@ const forwardedRequests = async (req: NextRequest, url: string) => {
     .then((data) => data)
     .catch((error) => error);
 
-  return result;
+  return result
 };
 
 export default forwardedRequests;

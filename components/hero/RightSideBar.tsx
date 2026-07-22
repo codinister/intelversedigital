@@ -10,7 +10,7 @@ const RightSideBar = () => {
   return (
     <div className="flex-3">
       <h6 className="mb-6 border-t-2 border-t-black">Tutorials</h6>
-      {data.slice(0,2).map(
+      {data?.slice(0,2).map(
         (
           v: {
             slug: string;
@@ -30,7 +30,7 @@ const RightSideBar = () => {
               }}
             ></div>
             <strong className="mb-4">{v.title}</strong>
-            <div>{v.excerpt.slice(0, 50) + '...'}</div>
+            <div>{v.excerpt?.slice(0, 50) + '...'}</div>
           </Link>
         ),
       )}

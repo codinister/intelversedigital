@@ -10,7 +10,7 @@ const Logo = () => {
   return (
     <Link href="/">
     <Image
-      src={sett[0]?.logo || '/empty.png'}
+      src={sett?.[0]?.logo || '/empty.png'}
       alt=""
       width={200}
       height={60}

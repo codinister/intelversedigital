@@ -7,9 +7,11 @@ const serviceUrl = () => {
     besttools: getUrl('besttools'),
     tutorials: getUrl('tutorials'),
     pages: getUrl('pages'),
+    posts: getUrl('posts'),
     settings: getUrl('settings'),
     menu: getUrl('menu'),
     footer: getUrl('footer'),
+    comments: getUrl('comments'),
   };
 };
 

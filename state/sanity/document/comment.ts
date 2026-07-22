@@ -25,5 +25,10 @@ export default defineType({
       title: 'Message',
       type: 'text',
     }),
+    defineField({
+      name: 'post',
+      title: 'Post',
+      type: 'string',
+    }),
   ],
 });

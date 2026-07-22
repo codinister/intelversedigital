@@ -1,22 +1,18 @@
 import { postData } from '@/app/api/infrastructure/repository/BlogPostRepository';
 import csrfValidation from '@/app/api/lib/csrfValidation';
-import redisCache from '@/app/api/lib/redisCache';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
-export async function GET() {
-
-  const fn = ()=>{
-    return postData.getFooterData()
-  }
-
+export async function POST(req: NextRequest) {
   try {
+    const data = await req.json();
     await csrfValidation();
-    const data = await redisCache('footer', fn);
-    return NextResponse.json(data);
+    const result = postData.createComment(data);
+    return NextResponse.json(result);
   } catch (err) {
     return err;
   }
 }
+

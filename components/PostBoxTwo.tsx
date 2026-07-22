@@ -14,7 +14,11 @@ const PostBoxTwo = ({ keys, url, title }: PostBoxOneProps) => {
     slug: string;
     excerpt: string;
     thumb: string;
-  }[] = useGetQuery(keys, url);
+  }[] = useGetQuery(keys, url) || [];
+
+  if (data?.length < 1) {
+    return 'PostBoxTwo data error!';
+  }
 
   const [curpost, ...posts] = data;
 

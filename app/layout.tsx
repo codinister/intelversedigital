@@ -11,24 +11,26 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: 'Interversedigital4u',
-  description: `I specialize in creating refined digital experiences and have strong expertise across multiple programming languages and technologies.
+  title: 'intelversedigital',
+  description: `IntelverseDigital: Empowering the Digital World Through Technology Insights and Innovation
+IntelverseDigital is a technology startup based in Accra, Ghana, founded by Julius Horla Kinih.
   `,
 
-  metadataBase: new URL('https://interversedigital4u.com'), // 🔥 IMPORTANT
+  metadataBase: new URL('https://intelversedigital.com'), // 🔥 IMPORTANT
 
   openGraph: {
-    title: 'Interversedigital4u',
-    description: `I specialize in creating refined digital experiences and have strong expertise across multiple programming languages and technologies.
+    title: 'intelversedigital',
+    description: `IntelverseDigital: Empowering the Digital World Through Technology Insights and Innovation
+IntelverseDigital is a technology startup based in Accra, Ghana, founded by Julius Horla Kinih.
     `,
-    url: 'https://interversedigital4u.com',
-    siteName: 'CODENESTA',
+    url: 'https://intelversedigital.com',
+    siteName: 'Intelversedigital',
     images: [
       {
-        url: '/logo.png', // will resolve with metadataBase
+        url: '/logo.jpeg', // will resolve with metadataBase
         width: 1200,
         height: 630,
-        alt: 'Codenesta logo',
+        alt: 'intelversedigital logo',
       },
     ],
     type: 'website',
@@ -36,9 +38,10 @@ export const metadata: Metadata = {
 
   twitter: {
     card: 'summary_large_image',
-    title: 'Interversedigital4u',
-    description: `I specialize in creating refined digital experiences and have strong expertise across multiple programming languages and technologies.`,
-    images: ['/logo.png'],
+    title: 'intelversedigital',
+    description: `IntelverseDigital: Empowering the Digital World Through Technology Insights and Innovation
+IntelverseDigital is a technology startup based in Accra, Ghana, founded by Julius Horla Kinih.`,
+    images: ['/logo.jpeg'],
   },
 };
 
@@ -56,9 +59,9 @@ export default function RootLayout({
     >
       <body cz-shortcut-listen="true">
         <QueryProvider>
-        <Nav />
-        {children}
-        <Footer />
+          <Nav />
+          {children}
+          <Footer />
         </QueryProvider>
       </body>
     </html>

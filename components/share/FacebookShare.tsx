@@ -1,0 +1,18 @@
+'use client';
+
+
+import { FacebookIcon } from 'react-share';
+
+
+const FacebookShare = ({ url }: { url: string }) => {
+  const urlEncode = encodeURIComponent(url);
+  const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${urlEncode}`;
+
+  return (
+     <a  href={facebookUrl} title="Share on Facebook">
+      <FacebookIcon size={30} round />
+    </a>
+  );
+};
+
+export default FacebookShare;
