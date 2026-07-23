@@ -2,6 +2,7 @@
 
 import useGetQuery from '@/state/query/useGetQuery';
 import SeeAll from './SeeAll';
+import Link from 'next/link';
 
 type PostBoxOneProps = {
   keys: string;
@@ -28,21 +29,21 @@ const PostBoxTwo = ({ keys, url, title }: PostBoxOneProps) => {
 
       <div className="flex gap-6">
         <div className="flex-1">
-          <div
-            className="h-85 mb=4"
+          <Link href={`/post/${curpost?.slug}`}
+            className="h-85 mb=4 block"
             style={{
               backgroundImage: `url(${curpost?.thumb})`,
               backgroundSize: 'cover',
               backgroundPosition: 'top left',
             }}
-          ></div>
+          ></Link>
           <h5 className="font-bold mt-6 mb-4">{curpost?.title}</h5>
           <div>{curpost?.excerpt}</div>
         </div>
 
         <div className="flex-1">
           {posts.slice(0, 3).map((v, k) => (
-            <div key={k} className="flex gap-4 mb-6">
+            <Link href={`/post/${v.slug}`} key={k} className="flex gap-4 mb-6">
               <div
                 className="h-35 flex-3"
                 style={{
@@ -56,7 +57,7 @@ const PostBoxTwo = ({ keys, url, title }: PostBoxOneProps) => {
                 <h6 className="mb-4 font-bold">{v.title}</h6>
                 <div>{v.excerpt.slice(0, 70) + '...'}</div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

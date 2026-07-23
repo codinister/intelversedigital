@@ -38,4 +38,13 @@ const month = (date: string) => {
   return dt.getMonth() + 1;
 };
 
-export { formatDate, year, month };
+
+function daysleft(now: string, past: string) {
+  const pastDate = new Date(past);
+  const curdate = new Date(now);
+  const newdate =  curdate.getTime() - pastDate.getTime()
+  const days = Math.floor(newdate / (1000 * 60 * 60 * 24));
+  return days;
+}
+
+export { formatDate, year, month , daysleft};

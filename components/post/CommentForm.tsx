@@ -19,9 +19,14 @@ import fetch from '@/state/query/fetch';
 import CommentList from './CommentList';
 import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+
+import useGetQuery from '@/state/query/useGetQuery';
+import { CommentType } from '@/types/types';
 
 const CommentForm = ({ id }: { id: string }) => {
-
+  const commData = useGetQuery('commentid', `comments/${id}`);
+  const [state, dispatch] = useState<CommentType[]>();
 
   const router = useRouter();
   const form = useForm<z.infer<typeof commForm>>({
@@ -52,11 +57,24 @@ const CommentForm = ({ id }: { id: string }) => {
         message: '',
       });
       router.refresh();
+
+      dispatch([
+        ...commData,
+        {
+          full_name: value.first_name + value.last_name,
+          email: value.email,
+          message: value.message,
+          date: new Date(),
+          now: new Date()
+        },
+      ]);
     } catch (error) {
       console.error(error);
       toast.error('failed to submit comment');
     }
   };
+
+  const data = state ? state : commData;
 
   return (
     <>
@@ -140,7 +158,7 @@ const CommentForm = ({ id }: { id: string }) => {
         </form>
       </Form>
 
-      <CommentList id={id} />
+      <CommentList data={data} />
     </>
   );
 };

@@ -3,6 +3,7 @@ import serverConfig from '@/state/sanity/server.config';
 import BlogRepository from '../../domain/repository/BlogRepository';
 import { fromError } from 'zod-validation-error';
 import { commForm } from '@/state/commentSchema/commentSchema';
+import { CommentType } from '@/types/types';
 
 const POST_TITLES_QUERY = groq`
   *[_type in ["reviews", "comparisons", "besttools", "tutorials"]]{
@@ -84,15 +85,21 @@ type MenuItem = {
 };
 
 class BlogPostRepository extends BlogRepository {
-
-
-  override async getComment(slug: string){
-    return await serverConfig.fetch(groq`*[_type == "comment" && post == $slug]{
+  override async getComment(slug: string) {
+    const result = await serverConfig.fetch(
+      groq`*[_type == "comment" && post == $slug]{
       full_name, 
       email, 
-      message
-      }`, {slug})
+      message, 
+      'date': _createdAt
+      }`,
+      { slug },
+    );
 
+    return result.map((v: CommentType) => ({
+      ...v,
+      now: new Date(),
+    }));
   }
   override async createComment({ ...options }) {
     const validate = commForm.safeParse(options);
@@ -105,7 +112,7 @@ class BlogPostRepository extends BlogRepository {
     try {
       const { id, first_name, last_name, email, message } = validate.data;
 
-      const qry = await serverConfig.create({
+      await serverConfig.create({
         _type: 'comment',
         full_name: first_name + ' ' + last_name,
         email,
@@ -113,7 +120,7 @@ class BlogPostRepository extends BlogRepository {
         post: id,
       });
 
-      return qry;
+      return 'Comment added successfully!';
     } catch (error) {
       return error;
     }
