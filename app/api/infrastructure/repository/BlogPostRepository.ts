@@ -9,7 +9,7 @@ const POST_TITLES_QUERY = groq`
   *[_type in ["reviews", "comparisons", "besttools", "tutorials"]]{
     "title": npost.title,
     "id": _id,
-    "slug": slug.current,
+    "slug": npost.slug.current,
     "type": _type
   }
 `;

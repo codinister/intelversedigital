@@ -6,11 +6,11 @@ import Link from 'next/link';
 
 const Logo = () => {
   const sett = useGetQuery('settings', 'settings');
-
+const settLogo = sett?.[0]?.logo || '/empty.png'
   return (
     <Link href="/">
     <Image
-      src={sett?.[0]?.logo || '/empty.png'}
+      src={settLogo}
       alt=""
       width={200}
       height={60}

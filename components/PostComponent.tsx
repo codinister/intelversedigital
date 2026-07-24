@@ -40,29 +40,31 @@ const components = {
   },
 };
 const PostComponent = ({ data }: PostComponentProp) => {
-  const { name, image, desc } = data.author;
+
+  const result = data || []
+  const authorData = result?.author || []
 
   return (
     <div className="p-6 sm:p-0">
       <AboutHeader />
 
       <div className="container mx-auto sm:px-50">
-        <PostTitle title={data?.title} />
-        <PostDate date={data?.date} />
-        <SharePost text={data?.excerpt} />
+        <PostTitle title={result?.title} />
+        <PostDate date={result?.date} />
+        <SharePost text={result?.excerpt} />
       </div>
 
       <div className="container mx-auto">
-        <PostThumb img={data?.thumb} />
+        <PostThumb img={result?.thumb} />
       </div>
 
       <div className="my-4 container mx-auto sm:px-50">
-        <Author image={image} name={name} desc={desc} />
+        <Author authorData={authorData} />
       </div>
 
       <div className="container mx-auto sm:px-50">
-        <PortableText value={data?.content || ''} components={components} />
-        <PostComment id={data?.id} />
+        <PortableText value={result?.content || ''} components={components} />
+        <PostComment id={result?.id} />
       </div>
     </div>
   );

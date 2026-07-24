@@ -6,12 +6,14 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import Logo from './Logo';
 import Menu from './Menu';
 import useGetQuery from '@/state/query/useGetQuery';
-import { usePathname } from 'next/navigation';
+
 
 const DesktopNav = () => {
   const [open, setOpen] = useState(false);
-  const path = usePathname();
+
   const menu = useGetQuery('menu', 'menu');
+
+  console.log(menu)
 
   return (
     <div>
