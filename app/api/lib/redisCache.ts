@@ -10,7 +10,7 @@ const redisCache = async (key: string, fn: () => void) => {
     else{
       const data = await fn()
        redis.set(key, JSON.stringify(data), {
-        ex: 0
+        ex: 180
       })
       return data
     }
