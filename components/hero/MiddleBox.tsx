@@ -27,7 +27,7 @@ const MiddleBox = () => {
         <span>Related</span>
 
         <div className="flex gap-6">
-          {data.slice(1, data.length).map(
+          {data?.map(
             (v: { thumb: string; title: string; slug: string }, k: number) => (
               <Link  href={`/post/${v.slug}`} key={k} className="flex gap-2">
                 {v.title}

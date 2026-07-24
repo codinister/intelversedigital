@@ -13,10 +13,10 @@ export default function Archive() {
   const posts = useGetQuery(url, url);
 
   return (
-    <>
+    <div className="p-6">
       <AboutHeader />
 
-      <div className="cont">
+      <div className="container mx-auto">
         <div className="p-6 bg-white">
           <h6 className="font-bold mb-13 border-t-5 border-t-black">
             All {url} blog posts
@@ -33,7 +33,7 @@ export default function Archive() {
                 },
                 k: number,
               ) => (
-                <div className="flex gap-4 mb-10" key={k}>
+                <div className="flex sm:flex-row flex-col gap-4 mb-10" key={k}>
                   <Link
                     href={`/post/${v.slug}`}
                     style={{
@@ -41,11 +41,11 @@ export default function Archive() {
                       backgroundSize: 'cover',
                       backgroundPosition: 'top left',
                     }}
-                    className="block flex-3 h-40"
+                    className="block flex-3 sm:py-0 py-40 h-50"
                   ></Link>
                   <div className="flex-7">
                     <h6 className="mb-4">{v.title}</h6>
-                    <div>{v.excerpt}</div>
+                    <div>{v.excerpt}</div> 
                   </div>
                 </div>
               ),
@@ -53,6 +53,6 @@ export default function Archive() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
