@@ -18,7 +18,12 @@ export async function GET(
 
     const result = await postData.getComment(slg);
     return NextResponse.json(result);
-  } catch (err) {
-    return err;
+  } catch (error) {
+    if(error instanceof Error){
+        return NextResponse.json(
+      { message: error.message },
+      { status: 500 }
+    );
+    }
   }
 }

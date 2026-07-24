@@ -11,8 +11,13 @@ export async function POST(req: NextRequest) {
     await csrfValidation();
     const result = postData.createComment(data);
     return NextResponse.json(result);
-  } catch (err) {
-    return err;
+  } catch (error) {
+    if(error instanceof Error){
+        return NextResponse.json(
+      { message: error.message },
+      { status: 500 }
+    );
+    }
   }
 }
 

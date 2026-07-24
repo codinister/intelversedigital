@@ -67,7 +67,8 @@ const SETTINGS_QUERY = groq`
 
 const PAGES_QUERY = groq`
   *[_type == "pages"]{
-  ..., 
+  title,
+  content,
   "slug": slug.current, 
   "excerpt": array::join(
   string::split(

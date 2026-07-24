@@ -16,7 +16,12 @@ export async function GET() {
     await csrfValidation();
     const data = await redisCache('footer', fn);
     return NextResponse.json(data);
-  } catch (err) {
-    return err;
+  } catch (error) {
+    if(error instanceof Error){
+        return NextResponse.json(
+      { message: error.message },
+      { status: 500 }
+    );
+    }
   }
 }
