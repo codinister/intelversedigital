@@ -17,10 +17,10 @@ const PostBoxOne = ({ keys, url, title }: PostBoxOneProps) => {
     thumb: string;
   }[] = useGetQuery(keys, url);
   return (
-    <div className="bg-white p-6 mb-6">
+    <div className="bg-white p-6 mb-10">
       <h4 className="mb-6 border-t-5 border-t-black">{title}</h4>
 
-      <div className="flex gap-4">
+      <div className="flex sm:flex-row flex-col  gap-4">
         {data.slice(0,4).map((v, k: number) => (
           <Link href={`/post/${v.slug}`} key={k} className="flex-1">
             <div

@@ -4,13 +4,13 @@ import useGetQuery from '@/state/query/useGetQuery';
 import Link from 'next/link';
 
 const AboutHeader = () => {
-  const [about] = useGetQuery('pages', 'pages');
+  const data = useGetQuery('pages', 'pages') || [];
 
   return (
-    <div className="mb-8 mx-auto text-center">
-      <b>{about?.title || ''}</b>
+    <div className="my-6 mx-auto sm:text-center">
+      <b>{data[0]?.title || ''}</b>
       <br />
-      <Link className='font-bold' href={`/page/${about?.slug || ''}`}>
+      <Link className='mt-4  block font-bold' href={`/page/${data[0]?.slug || ''}`}>
       Learn more
       </Link>
     </div>

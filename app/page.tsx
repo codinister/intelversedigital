@@ -4,7 +4,7 @@ import PostBoxTwo from '@/components/PostBoxTwo';
 
 export default function Home() {
   return (
-    <div className="cont">
+    <div className="container mx-auto">
       <HeroSection />
       <PostBoxOne keys="comparisons" url="comparisons" title="Comparisons" />
       <PostBoxTwo keys="reviews" url="reviews" title="Reviews" />

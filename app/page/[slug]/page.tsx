@@ -23,16 +23,16 @@ export default function Pages() {
   console.log(result);
 
   return (
-    <>
+    <div className="p-6 sm:p-0">
       <AboutHeader />
 
-      <div className="w-150 mx-auto mb-15">
+      <div className="container sm:px-50 mx-auto mb-15">
         <h4 className="font-bold mb-7">{result?.title}</h4>
 
         <div className="text-black">
           <PortableText value={result?.content || ''} />
         </div>
       </div>
-    </>
+    </div>
   );
 }

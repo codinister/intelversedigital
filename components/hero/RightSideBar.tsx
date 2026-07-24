@@ -22,7 +22,7 @@ const RightSideBar = () => {
         ) => (
           <Link href={`/post/${v.slug}`} key={k} className="block mb-6">
             <div
-              className="h-25 mb-3"
+              className="sm:h-25 h-50 mb-3"
               style={{
                 backgroundImage: `url(${v.thumb})`,
                 backgroundSize: 'cover',

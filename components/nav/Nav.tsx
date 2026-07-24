@@ -7,11 +7,11 @@ const Nav = () => {
   return (
     <>
       <nav>
-        <div className="cont flex justify-between items-center">
-          <div className="flex-1">
+        <div className="container mx-auto flex justify-between   items-center">
+          <div className="sm:flex-1 ml-4 sm:ml-0">
             <DesktopNav />
           </div>
-          <div className="hidden sm:flex sm:justify-center sm:flex-10">
+          <div className="sm:flex sm:justify-center sm:flex-10">
             <Logo />
           </div>
           <div className="hidden sm:flex sm:flex-1"></div>

@@ -8,7 +8,7 @@ type SeeAllProps = {
 }
 const SeeAll = ({data, type}: SeeAllProps) => {
   return (
-    <Link className="w-max block mx-auto mt-6 font-bold border-b-2 border-b-black text-center" href={`/archive/${type}`}>See All {data?.length} post(s)</Link>
+    <Link className="w-max block sm:mx-auto mt-6 font-bold border-b-2 border-b-black text-center" href={`/archive/${type}`}>See All {data?.length} post(s)</Link>
   )
 }
 

@@ -9,7 +9,7 @@ const HeroSection = () => {
   return (
     <div className="bg-white p-4 mb-13">
       <AboutHeader />
-      <div className="flex gap-4">
+      <div className="sm:flex sm:gap-4">
         <LeftSideBar />
         <MiddleBox />
         <RightSideBar />

@@ -8,7 +8,7 @@ const LeftSideBar = () => {
   const post = useGetQuery('reviews', 'reviews');
 
   return (
-    <div className="flex-3">
+    <div className="flex-3 mb-10">
       <h6 className="mb-6 border-t-2 border-black">Reviews</h6>
 
       <ul>

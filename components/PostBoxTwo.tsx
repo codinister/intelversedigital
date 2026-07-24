@@ -27,7 +27,7 @@ const PostBoxTwo = ({ keys, url, title }: PostBoxOneProps) => {
     <div className="mb-13 bg-white p-6">
       <h4 className="mb-6 border-t-5 border-t-black">{title}</h4>
 
-      <div className="flex gap-6">
+      <div className="flex flex-col sm:flex-row gap-6">
         <div className="flex-1">
           <Link href={`/post/${curpost?.slug}`}
             className="h-85 mb=4 block"

@@ -43,28 +43,28 @@ const PostComponent = ({ data }: PostComponentProp) => {
   const { name, image, desc } = data.author;
 
   return (
-    <>
+    <div className="p-6 sm:p-0">
       <AboutHeader />
 
-      <div className="post-cont">
+      <div className="container mx-auto sm:px-50">
         <PostTitle title={data?.title} />
         <PostDate date={data?.date} />
         <SharePost text={data?.excerpt} />
       </div>
 
-      <div className="cont">
+      <div className="container mx-auto">
         <PostThumb img={data?.thumb} />
       </div>
 
-      <div className="my-4 post-cont">
+      <div className="my-4 container mx-auto sm:px-50">
         <Author image={image} name={name} desc={desc} />
       </div>
 
-      <div className="post-cont">
+      <div className="container mx-auto sm:px-50">
         <PortableText value={data?.content || ''} components={components} />
         <PostComment id={data?.id} />
       </div>
-    </>
+    </div>
   );
 };
 
