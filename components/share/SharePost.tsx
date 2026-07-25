@@ -1,21 +1,25 @@
 'use client';
 
-import useGetQuery from '@/state/query/useGetQuery';
 import FacebookShare from '../share/FacebookShare';
 import { usePathname } from 'next/navigation';
 import TwitterShare from './TwitterShare';
 import LinkedinShare from './LinkedinShare';
 import WhatsappShare from './WhatsappShare';
 
-
 const SharePost = ({ text }: { text: string }) => {
   const path = usePathname();
-  const data = useGetQuery('settings', '/v1/settings') || [];
-  const url = data[0]?.domain + path;
+
+  if (!process.env.SITE_DOMAIN) {
+    return 'Site Domain is not set in the .env file';
+  }
+
+  const domain = process.env.SITE_DOMAIN;
+
+  const url = domain + path;
 
   return (
     <div className="flex items-center gap-3 my-6">
-      <WhatsappShare  url={url} />
+      <WhatsappShare url={url} />
       <FacebookShare url={url} />
       <TwitterShare text={text} url={url} />
       <LinkedinShare url={url} />
