@@ -41,7 +41,7 @@ export default function Archive() {
                       backgroundSize: 'cover',
                       backgroundPosition: 'top left',
                     }}
-                    className="block flex-3 sm:py-0 py-40 h-50"
+                    className="block flex-3 sm:py-0 py-25 h-50"
                   ></Link>
                   <div className="flex-7">
                     <h6 className="mb-4">{v.title}</h6>

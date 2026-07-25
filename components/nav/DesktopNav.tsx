@@ -3,7 +3,7 @@
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from '../ui/sheet';
 import { useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import Logo from './Logo';
+import Logo2 from './Logo2';
 import Menu from './Menu';
 import useGetQuery from '@/state/query/useGetQuery';
 
@@ -13,7 +13,6 @@ const DesktopNav = () => {
 
   const menu = useGetQuery('menu', 'menu');
 
-  console.log(menu)
 
   return (
     <div>
@@ -24,7 +23,7 @@ const DesktopNav = () => {
         <SheetContent side="left" className="w-80">
           <div className="p-8 h-screen">
             <div className="mb-6">
-              <Logo />
+              <Logo2 />
             </div>
             <Menu setClose={setOpen} menu={menu} />
           </div>
