@@ -5,15 +5,13 @@ import { usePathname } from 'next/navigation';
 import TwitterShare from './TwitterShare';
 import LinkedinShare from './LinkedinShare';
 import WhatsappShare from './WhatsappShare';
+import useGetQuery from '@/state/query/useGetQuery';
 
 const SharePost = ({ text }: { text: string }) => {
   const path = usePathname();
+const sett = useGetQuery('settings', 'settings')
 
-  if (!process.env.SITE_DOMAIN) {
-    return 'Site Domain is not set in the .env file';
-  }
-
-  const domain = process.env.SITE_DOMAIN;
+  const domain = sett?.[0].domain || ''
 
   const url = domain + path;
 
