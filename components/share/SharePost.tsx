@@ -9,9 +9,11 @@ import useGetQuery from '@/state/query/useGetQuery';
 
 const SharePost = ({ text }: { text: string }) => {
   const path = usePathname();
-const sett = useGetQuery('settings', 'settings')
+  const sett = useGetQuery('settings', 'settings') || [];
 
-  const domain = sett?.[0].domain || ''
+  const domain = sett?.[0]?.domain;
+
+  if (!domain) return 'Undefined domain name';
 
   const url = domain + path;
 
