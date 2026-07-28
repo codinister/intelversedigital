@@ -21,7 +21,7 @@ const PostBoxOne = ({ keys, url, title }: PostBoxOneProps) => {
       <h4 className="mb-6 border-t-5 border-t-black">{title}</h4>
 
       <div className="flex sm:flex-row flex-col  gap-4">
-        {data.slice(0,4).map((v, k: number) => (
+        {data?.slice(0,4).map((v, k: number) => (
           <Link href={`/post/${v.slug}`} key={k} className="flex-1">
             <div
               className="h-50"
