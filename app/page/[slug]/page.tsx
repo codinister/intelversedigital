@@ -18,9 +18,9 @@ export default function Pages() {
 
   const data = useGetQuery('pages', 'pages');
 
-  const [result] = data.filter((v: PagesProps) => v.slug === url);
+  if (!data) return 'Page is loading!';
 
-  console.log(result);
+  const [result] = data.filter((v: PagesProps) => v.slug === url);
 
   return (
     <div className="p-6 sm:p-0">
