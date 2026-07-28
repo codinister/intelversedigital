@@ -12,6 +12,10 @@ export default function Archive() {
 
   const posts = useGetQuery(url, url);
 
+  if (!posts) {
+    return 'Posts are loading!';
+  }
+
   return (
     <div className="p-6">
       <AboutHeader />
@@ -45,7 +49,7 @@ export default function Archive() {
                   ></Link>
                   <div className="flex-7">
                     <h6 className="mb-4">{v.title}</h6>
-                    <div>{v.excerpt}</div> 
+                    <div>{v.excerpt}</div>
                   </div>
                 </div>
               ),
