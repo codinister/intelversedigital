@@ -1,9 +1,9 @@
 'use client';
 
-import { Sheet, SheetClose, SheetContent, SheetTrigger } from '../ui/sheet';
+import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
 import { useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import Logo2 from './Logo2';
+import Logo from './Logo';
 import Menu from './Menu';
 import useGetQuery from '@/state/query/useGetQuery';
 
@@ -13,6 +13,7 @@ const DesktopNav = () => {
 
   const menu = useGetQuery('menu', 'menu');
 
+  if(!menu) return 'Menu loading...';
 
   return (
     <div>
@@ -23,7 +24,7 @@ const DesktopNav = () => {
         <SheetContent side="left" className="w-80">
           <div className="p-8 h-screen">
             <div className="mb-6">
-              <Logo2 />
+              <Logo />
             </div>
             <Menu setClose={setOpen} menu={menu} />
           </div>
