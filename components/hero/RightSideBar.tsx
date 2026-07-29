@@ -7,10 +7,14 @@ import SeeAll from '../SeeAll';
 const RightSideBar = () => {
   const data = useGetQuery('tutorials', 'tutorials');
 
+  if (!data) {
+    return '';
+  }
+
   return (
     <div className="flex-3">
       <h6 className="mb-6 border-t-2 border-t-black">Tutorials</h6>
-      {data?.slice(0,2).map(
+      {data?.slice(0, 2).map(
         (
           v: {
             slug: string;

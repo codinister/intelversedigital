@@ -7,13 +7,16 @@ import Logo from './Logo';
 import Menu from './Menu';
 import useGetQuery from '@/state/query/useGetQuery';
 
-
 const DesktopNav = () => {
   const [open, setOpen] = useState(false);
 
   const menu = useGetQuery('menu', 'menu');
 
-  if(!menu) return 'Menu loading...';
+  if (!menu) {
+    return '';
+  }
+
+  if (!menu) return 'Menu loading...';
 
   return (
     <div>

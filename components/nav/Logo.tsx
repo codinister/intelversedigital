@@ -6,19 +6,18 @@ import Link from 'next/link';
 
 const Logo = () => {
   const sett = useGetQuery('settings', 'settings');
-const  logos = sett?.[0]?.logo 
 
-if(!logos) return 'Logo loading...';
+  if (!sett) {
+    return '';
+  }
 
+  const logos = sett?.[0]?.logo;
+
+  if (!logos) return 'Logo loading...';
 
   return (
     <Link href="/">
-    <Image
-      src={logos}
-      alt=""
-      width={200}
-      height={60}
-    />
+      <Image src={logos} alt="" width={200} height={60} />
     </Link>
   );
 };

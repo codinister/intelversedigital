@@ -18,6 +18,10 @@ export default function Pages() {
 
   const data = useGetQuery('pages', 'pages');
 
+  if (!data) {
+    return '';
+  }
+
   if (!data) return 'Page is loading!';
 
   const [result] = data.filter((v: PagesProps) => v.slug === url);

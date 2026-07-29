@@ -12,8 +12,8 @@ import { FaXTwitter } from 'react-icons/fa6';
 const Footer = () => {
   const data = useGetQuery('footer', 'footer') || [];
 
-  if (data?.length < 1) {
-    return 'Footer data error!';
+  if (!data) {
+    return '';
   }
 
   return (

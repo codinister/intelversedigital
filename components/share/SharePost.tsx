@@ -11,6 +11,10 @@ const SharePost = ({ text }: { text: string }) => {
   const path = usePathname();
   const sett = useGetQuery('settings', 'settings') || [];
 
+  if (!sett) {
+    return '';
+  }
+
   const domain = sett?.[0]?.domain;
 
   if (!domain) return 'Undefined domain name';

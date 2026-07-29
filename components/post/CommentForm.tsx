@@ -19,13 +19,12 @@ import fetch from '@/state/query/fetch';
 import CommentList from './CommentList';
 import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import useGetQuery from '@/state/query/useGetQuery';
 import { CommentType } from '@/types/types';
 
 const CommentForm = ({ id }: { id: string }) => {
-  const commData = useGetQuery('commentid', `comments/${id}`);
   const [state, dispatch] = useState<CommentType[]>();
 
   const router = useRouter();
@@ -39,6 +38,12 @@ const CommentForm = ({ id }: { id: string }) => {
       message: '',
     },
   });
+
+  const commData = useGetQuery('commentid', `comments/${id}`);
+
+  if (!commData) {
+    return '';
+  }
 
   const handleForm = async (value: z.infer<typeof commForm>) => {
     try {
@@ -65,7 +70,7 @@ const CommentForm = ({ id }: { id: string }) => {
           email: value.email,
           message: value.message,
           date: new Date(),
-          now: new Date()
+          now: new Date(),
         },
       ]);
     } catch (error) {

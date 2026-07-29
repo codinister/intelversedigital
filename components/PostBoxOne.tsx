@@ -16,6 +16,12 @@ const PostBoxOne = ({ keys, url, title }: PostBoxOneProps) => {
     excerpt: string;
     thumb: string;
   }[] = useGetQuery(keys, url);
+
+
+  if (!data) {
+    return '';
+  }
+
   return (
     <div className="bg-white p-6 mb-10">
       <h4 className="mb-6 border-t-5 border-t-black">{title}</h4>

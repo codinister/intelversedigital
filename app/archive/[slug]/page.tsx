@@ -13,7 +13,7 @@ export default function Archive() {
   const posts = useGetQuery(url, url);
 
   if (!posts) {
-    return 'Posts are loading!';
+    return '';
   }
 
   return (
