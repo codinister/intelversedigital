@@ -3,10 +3,7 @@
 import { useQuery } from '@tanstack/react-query';
 import fetch from './fetch';
 
-type getQueryProp = {
-  key: string;
-  url: string;
-};
+
 const useGetQuery = (key: string, url: string) => {
   const fn = () => {
     return fetch({ url });
