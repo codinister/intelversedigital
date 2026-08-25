@@ -9,6 +9,13 @@ import tutorials from './document/tutorials';
 import comment from './document/comment';
 import post from './object/post';
 import pages from './document/pages';
+import { adEnginePage } from './document/adEnginePage';
+import leakItem from './object/landingpage/leakItem';
+import insideItem from './object/landingpage/insideItem';
+import fitCard from './object/landingpage/fitCard';
+import faqItem from './object/landingpage/faqItem';
+import cta from './object/landingpage/cta';
+import blueprintItem from './object/landingpage/blueprintItem';
 
 export const schemaTypes = [
   youtube,
@@ -22,4 +29,11 @@ export const schemaTypes = [
   settings,
   tutorials,
   comment,
+  blueprintItem,
+  cta,
+  faqItem,
+  fitCard,
+  insideItem,
+  leakItem,
+  adEnginePage,
 ];
