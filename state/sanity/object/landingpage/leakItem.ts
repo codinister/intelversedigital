@@ -5,7 +5,15 @@ export default defineType({
   title: "Leak Item",
   type: "object",
   fields: [
-    defineField({ name: "title", title: "Title", type: "string" }),
-    defineField({ name: "description", title: "Description", type: "text" })
+    defineField({ 
+      name: "title", 
+      title: "Title", 
+      type: "string" 
+    }),
+    defineField({ 
+      name: "description", 
+      title: "Description", 
+      type: "text" 
+    })
   ]
 });

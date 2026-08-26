@@ -20,14 +20,14 @@ export default defineType({
     defineField({
       name: 'href',
       title: 'URL',
-      description: 'A whatsapp link or website link to view or download product',
+      description: 'A whatsapp link or website link to view or download AD',
       type: 'url',
       validation: (Rule) => Rule.required(),
     }),
     defineField({ 
       name: 'subtext', 
       title: 'Subtext', 
-      description: 'Describe payment methods',
+      description: 'Describe payment methods like Momo, Visa, Cheque',
       type: 'string' 
     }),
   ],
