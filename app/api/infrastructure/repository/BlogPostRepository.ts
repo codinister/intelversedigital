@@ -32,6 +32,19 @@ const POST_QUERY = groq`
   }
 `;
 
+
+
+const LANDINGPAGE_SINGLE_QUERY = groq`
+*[_type == "landingpage" && _id == $id][0]
+`
+
+const LANDINGPAGE_QUERY = groq`
+*[_type == "landingpage"]{
+'id': _id, 
+'title': metadata.title
+}
+`
+
 const POST_SINGLE_QUERY = groq`
 *[npost.slug.current == $slug][0]{
     'author': npost.author->{
@@ -181,6 +194,18 @@ class BlogPostRepository extends BlogRepository {
 
   override async getSinglePost(slug: string) {
     return serverConfig.fetch(POST_SINGLE_QUERY, { slug });
+  }
+
+  override async getSingleLandingPage(id: string) {
+    return serverConfig.fetch(LANDINGPAGE_SINGLE_QUERY, { id });
+  }
+
+
+  override async getLandingPage(): Promise<{
+    id: string; 
+    title: string;
+  }[]> {
+    return serverConfig.fetch(LANDINGPAGE_QUERY);
   }
 
   override getPages() {

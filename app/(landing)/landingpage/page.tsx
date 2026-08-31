@@ -1,34 +1,28 @@
-import adEngineData from "@/data/ad-engine.json";
-import type { AdEnginePage } from "@/types/ad-engine";
-import { Hero } from "@/components/sales-page/Hero";
-import { Pain } from "@/components/sales-page/Pain";
-import { Leaks } from "@/components/sales-page/Leaks";
-import { Reveal } from "@/components/sales-page/Reveal";
-import { Inside } from "@/components/sales-page/Inside";
-import { Blueprints } from "@/components/sales-page/Blueprints";
-import { Fit } from "@/components/sales-page/Fit";
-import { Pricing } from "@/components/sales-page/Pricing";
-import { Proof } from "@/components/sales-page/Proof";
-import { FAQ } from "@/components/sales-page/FAQ";
-import { FinalCTA } from "@/components/sales-page/FinalCTA";
+'use client';
 
-
-const pageData = adEngineData as AdEnginePage;
+import LandingPageLinks from '@/components/LandingPageLinks';
+import useGetQuery from '@/state/query/useGetQuery';
 
 export default function HomePage() {
+  const links = useGetQuery('landingpages', 'landingpages') ?? null;
+
+  if(!links) return ''
+
   return (
-    <main>
-      <Hero data={pageData.hero} />
-      <Pain data={pageData.pain} />
-      <Leaks data={pageData.leaks} />
-      <Reveal data={pageData.reveal} />
-      <Inside data={pageData.inside} />
-      <Blueprints data={pageData.blueprints} />
-      <Fit data={pageData.fit} />
-      <Pricing data={pageData.pricing} />
-      <Proof data={pageData.proof} />
-      <FAQ data={pageData.faq} />
-      <FinalCTA data={pageData.finalCta} />
+    <main className="min-h-screen bg-gray-50 px-4 py-16">
+      <div className="mx-auto max-w-3xl">
+        <div className="mb-10 text-center">
+          <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Landing Page Links
+          </h1>
+
+          <p className="mt-3 text-gray-600">
+            Browse and copy any of the available landing page links.
+          </p>
+        </div>
+
+        <LandingPageLinks links={links} />
+      </div>
     </main>
   );
 }

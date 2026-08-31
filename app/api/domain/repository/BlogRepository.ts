@@ -1,11 +1,12 @@
 import {
   CommentType,
-  CreateCommentType,
   MenuData,
   PageType,
   PostType,
   SinglePostType,
+  SingleLandingPageType,
 } from '@/types/types';
+import { string } from 'zod';
 
 abstract class BlogRepository {
   abstract getPost(type: string): Promise<PostType[]>;
@@ -16,7 +17,16 @@ abstract class BlogRepository {
     besttools: MenuData[];
     tutorials: MenuData[];
   }>;
+
   abstract getSinglePost(slug: string): Promise<SinglePostType[]>;
+
+  abstract getSingleLandingPage(id: string): Promise<SingleLandingPageType[]>;
+
+  abstract getLandingPage(): Promise<{
+    id: string; 
+    title: string;
+  }[]>;
+
   abstract createComment({ ...options }): void;
   abstract getComment(slug: string): Promise<CommentType[]>;
   abstract getFooterData(): Promise<unknown>;

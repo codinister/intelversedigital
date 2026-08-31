@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import Footer from '@/components/sales-page/Footer'
+import Footer from '@/components/sales-page/Footer';
+import QueryProvider from '@/state/query/QueryProvider';
 
 export const metadata: Metadata = {
   title:
@@ -33,9 +34,8 @@ export default function LandingPageLayout({
       className="roboto_d9e29c6f-module__Hwx4wq__className"
       suppressHydrationWarning={true}
     >
-      <body cz-shortcut-listen="true">{children}
-
-        <Footer />
+      <body cz-shortcut-listen="true">
+        <QueryProvider>{children}</QueryProvider>
       </body>
     </html>
   );

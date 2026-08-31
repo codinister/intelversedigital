@@ -8,6 +8,7 @@ const serviceUrl = () => {
     tutorials: getUrl('tutorials'),
     pages: getUrl('pages'),
     posts: getUrl('posts'),
+    landingpages: getUrl('landingpages'), 
     settings: getUrl('settings'),
     menu: getUrl('menu'),
     footer: getUrl('footer'),
